@@ -3,6 +3,7 @@ package com.seu.athorization.cotroller;
 import com.seu.athorization.exception.ResourseAlreadyExisitException;
 import com.seu.athorization.exception.ResourseNotFoundException;
 import com.seu.athorization.model.LoginToken;
+import com.seu.athorization.model.Role;
 import com.seu.athorization.services.LoginTokenService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class LoginTokenController {
         try {
             return ResponseEntity.ok(loginTokenService.findById(id));
         } catch (ResourseNotFoundException e) {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(new LoginToken(null,null, Role.NO_ROLE));
         }catch (Exception e){
             return  ResponseEntity.badRequest().build();
         }
