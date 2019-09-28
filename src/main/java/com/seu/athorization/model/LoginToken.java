@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = {"username"})
 public class LoginToken {
@@ -16,7 +17,5 @@ public class LoginToken {
     private   String loginpassword;
     private Role role;
 
-    public LoginToken() {
-       this.role= Role.NO_ROLE;
-    }
+
 }
