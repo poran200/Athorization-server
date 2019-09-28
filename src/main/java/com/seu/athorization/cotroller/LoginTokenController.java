@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import static com.seu.athorization.model.Role.NO_ROLE;
-
 @RestController
 @RequestMapping(value = "api/v1/authorization")
 public class LoginTokenController {
@@ -40,7 +38,7 @@ public class LoginTokenController {
         try {
             return ResponseEntity.ok(loginTokenService.findById(id));
         } catch (ResourseNotFoundException e) {
-            return ResponseEntity.ok(new LoginToken(null,null, NO_ROLE));
+            return ResponseEntity.ok(new LoginToken(null,null,null));
         }catch (Exception e){
             return  ResponseEntity.badRequest().build();
         }
