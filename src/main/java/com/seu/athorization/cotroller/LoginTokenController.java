@@ -38,7 +38,7 @@ public class LoginTokenController {
         try {
             return ResponseEntity.ok(loginTokenService.findById(id));
         } catch (ResourseNotFoundException e) {
-            return ResponseEntity.ok(new LoginToken(null,null,null));
+            return ResponseEntity.ok(new LoginToken());
         }catch (Exception e){
             return  ResponseEntity.badRequest().build();
         }
