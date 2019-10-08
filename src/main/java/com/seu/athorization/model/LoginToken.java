@@ -10,11 +10,12 @@ import org.springframework.data.annotation.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = {"username"})
+@EqualsAndHashCode(of = {"userId"})
 public class LoginToken {
     @Id
-    private  String username;
-    private   String loginpassword;
+    private  String userId;
+    private String userName;
+    private   String loginPassword;
     private Role role;
 
 
