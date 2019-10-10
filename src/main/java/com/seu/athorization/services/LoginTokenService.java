@@ -23,12 +23,15 @@ public class LoginTokenService {
     }
 
     public   LoginToken insert(LoginToken loginToken) throws ResourseAlreadyExisitException {
+        System.out.println(loginToken);
         Optional<LoginToken> optionalLoginToken= loginTokenRepository.findById(loginToken. getUserId());
         if (optionalLoginToken.isPresent()){
             throw  new ResourseAlreadyExisitException(loginToken.getUserId());
         }
         else {
-            return loginTokenRepository.save(loginToken);
+             LoginToken loginToken1= loginTokenRepository.save(loginToken);
+            System.out.println(loginToken1);
+            return loginToken1;
         }
     }
 
